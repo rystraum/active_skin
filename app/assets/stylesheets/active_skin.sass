@@ -80,6 +80,18 @@ body.active_admin
         background: none
         color: $skinTextColor
 
+@mixin active_skin_button
+  @include rounded(0)
+  background: $skinActiveColor
+  color: #fff
+  @include no-shadow()
+  text-shadow: none
+  border: none
+  padding: 17px
+  font-size: 14px
+  &:hover
+    background: lighten( $skinActiveColor, 10% ) !important
+
 #title_bar
   background: $skinHeaderBck
   text-shadow: none
@@ -90,20 +102,10 @@ body.active_admin
   margin: 0
   h2
     color: $skinHeaderTextColor
-
-.action_items a,
-.action_items span.action_item
-  & > a, & > .dropdown_menu > a
-    @include rounded(0)
-    background: $skinActiveColor
-    color: #fff
-    @include no-shadow()
-    text-shadow: none
-    border: none
-    padding: 17px
-    font-size: 14px
-    &:hover
-      background: lighten( $skinActiveColor, 10% ) !important
+  .action_items a,
+  .action_items span.action_item
+    & > a, & > .dropdown_menu > a
+      @include active_skin_button
 
 #active_admin_content
   @include clearfix
